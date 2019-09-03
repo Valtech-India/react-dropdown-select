@@ -422,7 +422,7 @@ export class Select extends Component {
       <ClickOutside onClickOutside={(event) => this.dropDown('close', event)}>
         <ReactDropdownSelect
           onKeyDown={this.handleKeyDown}
-          onClick={(event) => this.dropDown('open', event)}
+          onClick={(event) => this.dropDown('toggle', event)}
           tabIndex="0"
           direction={this.props.direction}
           style={this.props.style}
