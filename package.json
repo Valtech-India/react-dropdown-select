@@ -1,5 +1,5 @@
 {
-  "name": "react-dropdown-selectv1",
+  "name": "react-dropdown-select",
   "version": "3.3.4",
   "description": "Customizable dropdown select for react",
   "main": "dist/react-dropdown-select.js",
