@@ -6,6 +6,7 @@ class ClickOutside extends React.Component {
   a = false;
   componentDidMount() {
     if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+       document.addEventListener('touchmove', this.removeHandler, true);
       document.addEventListener('touchend', this.handleClick, true);
     } else {
       document.addEventListener('click', this.handleClick, true);
@@ -15,13 +16,16 @@ class ClickOutside extends React.Component {
   componentWillUnmount() {
     
     if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
-      document.removeEventListener('touchmove', function() {this.a = true}, true);
+      document.removeEventListener('touchmove', this.removeHandler, true);
       document.removeEventListener('touchend', this.handleClick , true);
     } else {
       document.removeEventListener('click', this.handleClick, true);
     }
   }
 
+  removeHandler = () => {
+    this.a = true
+  }
 
   handleClick = (event) => {
     if(!this.a){
