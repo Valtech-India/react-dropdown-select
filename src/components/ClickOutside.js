@@ -5,11 +5,19 @@ class ClickOutside extends React.Component {
   container = React.createRef();
 
   componentDidMount() {
-    document.addEventListener('click', this.handleClick, true);
+    if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+      document.addEventListener('touchend', this.handleClick, true);
+    } else {
+      document.addEventListener('click', this.handleClick, true);
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleClick, true);
+    if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+      document.removeEventListener('touchend', this.handleClick, true);
+    } else {
+      document.removeEventListener('click', this.handleClick, true);
+    }
   }
 
   handleClick = (event) => {
