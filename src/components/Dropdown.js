@@ -40,7 +40,7 @@ const Dropdown = ({ props, state, methods }) => (
     {props.dropdownRenderer ? (
       props.dropdownRenderer({ props, state, methods })
     ) : (
-      <React.Fragment>
+      <div className="dropDownWrapper">
         {props.create && state.search && !valueExistInSelected(state.search, state.values, props) && (
           <AddNew
             className={`${LIB_NAME}-dropdown-add-new`}
@@ -70,7 +70,7 @@ const Dropdown = ({ props, state, methods }) => (
               />
             ))
         )}
-      </React.Fragment>
+      </div>
     )}
   </DropDown>
 );
